@@ -15,6 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->api([
             \Illuminate\Http\Middleware\HandleCors::class,
         ]);
+        
+        // Configurar CORS para todas las rutas API
+        $middleware->web([
+            \Illuminate\Http\Middleware\HandleCors::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
