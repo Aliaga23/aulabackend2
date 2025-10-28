@@ -8,6 +8,12 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\CoordinadorController;
+use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\AulaController;
+use App\Http\Controllers\HorarioController;
+use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\FacultadController;
+use App\Http\Controllers\GestionController;
 
 Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
@@ -62,6 +68,54 @@ Route::middleware(['api'])->group(function () {
         Route::get('/{id}', [CoordinadorController::class, 'show']);
         Route::put('/{id}', [CoordinadorController::class, 'update']);
         Route::delete('/{id}', [CoordinadorController::class, 'destroy']);
+    });
+    
+    Route::prefix('materias')->group(function () {
+        Route::get('/', [MateriaController::class, 'index']);
+        Route::get('/{id}', [MateriaController::class, 'show']);
+        Route::post('/', [MateriaController::class, 'store']);
+        Route::put('/{id}', [MateriaController::class, 'update']);
+        Route::delete('/{id}', [MateriaController::class, 'destroy']);
+    });
+    
+    Route::prefix('aulas')->group(function () {
+        Route::get('/', [AulaController::class, 'index']);
+        Route::get('/{id}', [AulaController::class, 'show']);
+        Route::post('/', [AulaController::class, 'store']);
+        Route::put('/{id}', [AulaController::class, 'update']);
+        Route::delete('/{id}', [AulaController::class, 'destroy']);
+    });
+    
+    Route::prefix('horarios')->group(function () {
+        Route::get('/', [HorarioController::class, 'index']);
+        Route::get('/{id}', [HorarioController::class, 'show']);
+        Route::post('/', [HorarioController::class, 'store']);
+        Route::put('/{id}', [HorarioController::class, 'update']);
+        Route::delete('/{id}', [HorarioController::class, 'destroy']);
+    });
+    
+    Route::prefix('carreras')->group(function () {
+        Route::get('/', [CarreraController::class, 'index']);
+        Route::get('/{id}', [CarreraController::class, 'show']);
+        Route::post('/', [CarreraController::class, 'store']);
+        Route::put('/{id}', [CarreraController::class, 'update']);
+        Route::delete('/{id}', [CarreraController::class, 'destroy']);
+    });
+    
+    Route::prefix('facultades')->group(function () {
+        Route::get('/', [FacultadController::class, 'index']);
+        Route::get('/{id}', [FacultadController::class, 'show']);
+        Route::post('/', [FacultadController::class, 'store']);
+        Route::put('/{id}', [FacultadController::class, 'update']);
+        Route::delete('/{id}', [FacultadController::class, 'destroy']);
+    });
+    
+    Route::prefix('gestiones')->group(function () {
+        Route::get('/', [GestionController::class, 'index']);
+        Route::get('/{id}', [GestionController::class, 'show']);
+        Route::post('/', [GestionController::class, 'store']);
+        Route::put('/{id}', [GestionController::class, 'update']);
+        Route::delete('/{id}', [GestionController::class, 'destroy']);
     });
 });
 
